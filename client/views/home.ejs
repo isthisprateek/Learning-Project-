@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vagabond - Life is short! Travel for yourself</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/home.css">
+</head>
+<body>
+
+    <!-- Top bar: logo + auth links, floating over the hero -->
+    <nav class="landing-nav">
+        <div class="landing-nav-inner">
+            <a href="/" class="landing-brand">
+                <i class="fa-solid fa-binoculars" style="color: rgb(148, 14, 14);"></i> Vagabond
+            </a>
+            <div class="landing-nav-links">
+                <% if (!currUser) { %>
+                    <a href="/login" class="landing-link">Log In</a>
+                    <a href="/signup" class="landing-btn-outline">Sign Up</a>
+                <% } else { %>
+                    <a href="/listings" class="landing-link">My Listings</a>
+                    <a href="/logout" class="landing-btn-outline">Log Out</a>
+                <% } %>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Life is short.<br>Travel for yourself.</h1>
+            <p>Discover handpicked stays — from royal havelis to houseboats and tea gardens.</p>
+            <div class="hero-actions">
+                <a href="/listings" class="landing-btn-primary">
+                    <i class="fa-solid fa-magnifying-glass me-2"></i>Explore Listings
+                </a>
+                <% if (!currUser) { %>
+                <a href="/signup" class="landing-btn-ghost">
+                    Get Started <i class="fa-solid fa-arrow-right ms-2"></i>
+                </a>
+                <% } %>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature strip -->
+    <section class="features">
+        <div class="feature">
+            <i class="fa-solid fa-mountain-city"></i>
+            <h5>Iconic Destinations</h5>
+            <p>From Jaipur's forts to Kashmir's houseboats, all in one place.</p>
+        </div>
+        <div class="feature">
+            <i class="fa-solid fa-shield-halved"></i>
+            <h5>Verified Listings</h5>
+            <p>Every stay is listed and managed directly by its owner.</p>
+        </div>
+        <div class="feature">
+            <i class="fa-solid fa-route"></i>
+            <h5>Route to Stay</h5>
+            <p>See the exact path from your location to your next stay.</p>
+        </div>
+    </section>
+
+    <!-- Bottom CTA -->
+    <section class="cta-strip">
+        <h3>Ready to be a Vagabond?</h3>
+        <a href="/listings" class="landing-btn-primary">Browse All Listings</a>
+    </section>
+
+    <footer class="landing-footer">
+        <p>&copy; <%= new Date().getFullYear() %> Vagabond. Life is short — travel for yourself.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+</body>
+</html>

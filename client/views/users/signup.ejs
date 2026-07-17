@@ -1,0 +1,66 @@
+<% layout("/layouts/boilerplate") %> 
+
+<div class="auth-wrapper">
+    <div class="auth-card">
+        <div class="auth-header">
+        <a href="/" style="font-size: 30px; margin-left: 10px;">
+            <i class="fa-solid fa-binoculars" style="color: rgb(148, 14, 14);"></i>
+        </a>
+            <h2>Join WanderLust</h2>
+            <p>Create an account to start listing and booking stays.</p>
+        </div>
+
+        <form action="/signup" method="post" class="needs-validation" novalidate>
+            <div class="mb-3">
+                <label class="form-label" for="username">Username</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fa-solid fa-user"></i></span>
+                    <input
+                        name="username"
+                        class="form-control"
+                        id="username"
+                        type="text"
+                        placeholder="Choose a username"
+                        required>
+                    <div class="valid-feedback">Looks good.</div>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label" for="email">Email</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fa-solid fa-envelope"></i></span>
+                    <input
+                        name="email"
+                        class="form-control"
+                        id="email"
+                        type="email"
+                        placeholder="you@example.com"
+                        required>
+                    <div class="valid-feedback">Looks good.</div>
+                </div>
+            </div>
+
+            <div class="mb-4">
+                <label class="form-label" for="password">Password</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fa-solid fa-lock"></i></span>
+                    <input
+                        name="password"
+                        class="form-control"
+                        id="password"
+                        type="password"
+                        placeholder="Create a password"
+                        required>
+                    <div class="valid-feedback">Looks good.</div>
+                </div>
+            </div>
+
+            <button class="btn btn-auth-primary w-100">Sign Up</button>
+        </form>
+
+        <p class="auth-footer-text">
+            Already have an account? <a href="/login">Log In</a>
+        </p>
+    </div>
+</div>

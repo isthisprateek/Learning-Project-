@@ -1,0 +1,50 @@
+
+<% layout("/layouts/boilerplate") %>
+
+<div class="auth-wrapper">
+    <div class="auth-card">
+        <div class="auth-header">
+        <a href="/" style="font-size: 30px; margin-left: 10px;">
+            <i class="fa-solid fa-binoculars" style="color: rgb(148, 14, 14);"></i> 
+       </a>
+            <h2>Welcome Back</h2>
+            <p>Log in to continue your journey with WanderLust.</p>
+        </div>
+
+        <form action="/login" method="post" class="needs-validation" novalidate>
+            <div class="mb-3">
+                <label class="form-label" for="username">Username</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fa-solid fa-user"></i></span>
+                    <input
+                        name="username"
+                        class="form-control"
+                        id="username"
+                        type="text"
+                        placeholder="Your username"
+                        required>
+                </div>
+            </div>
+
+            <div class="mb-4">
+                <label class="form-label" for="password">Password</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fa-solid fa-lock"></i></span>
+                    <input
+                        name="password"
+                        class="form-control"
+                        id="password"
+                        type="password"
+                        placeholder="Your password"
+                        required>
+                </div>
+            </div>
+
+            <button class="btn btn-auth-warning w-100">Log In</button>
+        </form>
+
+        <p class="auth-footer-text">
+            New here? <a href="/signup">Create an account</a>
+        </p>
+    </div>
+</div>

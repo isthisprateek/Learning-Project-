@@ -1,0 +1,198 @@
+<style>
+    .navbar {
+        min-height: 5rem;
+        background-color: #fdf8f6;
+        padding: 0.5rem 0;
+    }
+
+    .navbar-brand {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-weight: 700;
+        font-size: 1.15rem;
+        color: #222 !important;
+    }
+
+    .navbar-brand .fa-compass {
+        color: #6200ff;
+        font-size: 1.6rem;
+    }
+
+    .nav-link {
+        font-weight: 500;
+        color: #333 !important;
+        padding: 0.5rem 1rem !important;
+        border-radius: 0.5rem;
+        transition: background-color 0.15s ease;
+    }
+
+    .nav-link:hover {
+        background-color: rgba(98, 0, 255, 0.06);
+    }
+
+    .nav-link-cta {
+        color: #6200ff !important;
+        font-weight: 600 !important;
+    }
+
+    .navbar-collapse {
+        background-color: inherit;
+    }
+
+    /* Search */
+    .search-form {
+        position: relative;
+    }
+
+    .search-inp {
+        border-radius: 25px;
+        border: 1px solid #ddd;
+        padding: 0.55rem 1.25rem;
+        font-size: 0.95rem;
+        min-width: 220px;
+        background-color: #fff;
+        transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .search-inp:focus {
+        border-color: #b19cd9;
+        box-shadow: 0 0 0 0.2rem rgba(98, 0, 255, 0.1);
+    }
+
+    .btn-search {
+        background-color: cornflowerblue;
+        color: #fff;
+        border: none;
+        border-radius: 25px;
+        padding: 0.55rem 1.25rem;
+        font-weight: 600;
+        white-space: nowrap;
+        transition: background-color 0.2s ease;
+    }
+
+    .btn-search:hover {
+        background-color: rgb(148, 14, 14);
+        color: #fff;
+    }
+
+    .btn-search i {
+        margin-right: 0.35rem;
+    }
+
+    /* Add-listing button styled distinctly from plain links */
+    .btn-add-listing {
+        background-color: #222 !important;
+        color: #fff !important;
+        border-radius: 25px !important;
+        padding: 0.5rem 1.1rem !important;
+        font-weight: 600 !important;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+    }
+
+    .btn-add-listing:hover {
+        background-color: #444 !important;
+    }
+
+    .btn-add-listing i {
+        font-size: 0.85rem;
+    }
+
+    /* Tax toggle (kept for filters partial to reuse) */
+    .tax-info { display: none; }
+    .tax-toggle {
+        border: 1px solid #ddd;
+        border-radius: 1rem;
+        height: 2.5rem;
+        padding: 0 1rem;
+        margin-left: 1rem;
+        display: flex;
+        align-items: center;
+        background-color: #fff;
+    }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 991.98px) {
+        .navbar-nav {
+            width: 100%;
+        }
+        .navbar-nav .nav-link {
+            padding: 0.65rem 0.25rem !important;
+        }
+        .search-form {
+            width: 100%;
+            margin: 0.75rem 0;
+        }
+        .search-inp {
+            flex: 1;
+            min-width: 0;
+        }
+        .btn-add-listing {
+            width: fit-content;
+        }
+        .navbar-nav.ms-auto {
+            margin-left: 0 !important;
+            border-top: 1px solid #eee;
+            padding-top: 0.5rem;
+            margin-top: 0.5rem;
+        }
+    }
+</style>
+
+<nav class="navbar navbar-expand-lg border-bottom sticky-top">
+    <div class="container-fluid">
+        <a href="/" style="font-size: 30px; margin-left: 10px;">
+            <i class="fa-solid fa-binoculars" style="color: rgb(148, 14, 14);"></i>
+        </a>
+        <a class="navbar-brand" href="/listings">
+            &nbsp; &nbsp;&nbsp;&nbsp;Explore
+        </a>
+
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+        >
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+
+            <div class="navbar-nav ms-auto">
+                <form action="/listings/search" class="d-flex search-form" role="search">
+                    <input class="form-control me-2 search-inp"
+                        type="search"
+                        name="q"
+                        placeholder="Search Destinations"
+                        aria-label="Search"
+                        value="<%= query %>"/>
+                    <button class="btn btn-search" type="submit" >
+                        <i class="fa-solid fa-magnifying-glass" ></i>Search
+                    </button>
+                </form>
+            </div>
+
+            <div class="navbar-nav ms-auto align-items-lg-center">
+                <a class="nav-link btn-add-listing me-lg-2" href="/listings/new">
+                    <i class="fa-solid fa-plus"></i> Add Listing
+                </a>
+
+                <% if (!currUser) { %>
+                    <a class="nav-link" href="/signup">Sign Up</a>
+                    <a class="nav-link nav-link-cta" href="/login">Log In</a>
+                <% } %>
+
+                <% if (currUser) { %>
+                    <a class="nav-link nav-link-cta" href="/logout">Log Out</a>
+                <% } %>
+            </div>
+
+        </div>
+    </div>
+</nav>
