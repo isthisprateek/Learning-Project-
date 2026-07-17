@@ -59,7 +59,9 @@ module.exports.renderEditForm = async (req,res) => {
 };
 
 module.exports.createListing = async(req,res,next) => {
-    let listing = req.body.listing;  //JS Object
+    console.log("Hi entered the callback");
+    let listing = req.body.listing;  // JS Object
+    console.log(listing);
     let response = await geocodingClient.forwardGeocode({
         query: `${listing.location}, ${listing.country}`,
         limit: 1,
